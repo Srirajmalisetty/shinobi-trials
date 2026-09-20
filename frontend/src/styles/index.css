@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #111125;
+    color: #e2e0fc;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+  }
+}
+
+/* Custom Chakra Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111125;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #28283d;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff6b1a;
+}
+
+/* Chakra glow animations */
+@keyframes chakraPulse {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(255, 107, 26, 0.4), inset 0 0 10px rgba(255, 107, 26, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(255, 107, 26, 0.7), inset 0 0 15px rgba(255, 107, 26, 0.35);
+  }
+}
+
+.chakra-glow {
+  animation: chakraPulse 3s infinite ease-in-out;
+}
+
+.chakra-glow-orange {
+  box-shadow: 0 0 20px rgba(255, 107, 26, 0.45);
+}
+
+.chakra-glow-gold {
+  box-shadow: 0 0 25px rgba(255, 201, 60, 0.4);
+}
+
+.chakra-glow-green {
+  box-shadow: 0 0 22px rgba(46, 139, 87, 0.5), inset 0 0 14px rgba(46, 139, 87, 0.25);
+}
+
+.chakra-glow-red {
+  box-shadow: 0 0 22px rgba(239, 68, 68, 0.55), inset 0 0 14px rgba(239, 68, 68, 0.2);
+}
+
+.parchment-border {
+  border: 1px solid rgba(255, 201, 60, 0.25);
+  background: radial-gradient(circle at 50% 50%, #1a1a2e 0%, #121224 100%);
+}
+
+.ninja-card {
+  background: #141428;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
+
+@keyframes chakraRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-chakra-spin {
+  animation: chakraRotate 1.2s linear infinite;
+}
+

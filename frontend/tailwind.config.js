@@ -1,0 +1,80 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        surface: "#111125",
+        "surface-dim": "#111125",
+        "surface-bright": "#37374d",
+        "surface-container-lowest": "#0c0c1f",
+        "surface-container-low": "#1a1a2e",
+        "surface-container": "#1e1e32",
+        "surface-container-high": "#28283d",
+        "surface-container-highest": "#333348",
+        "surface-variant": "#333348",
+        background: "#111125",
+        "on-background": "#e2e0fc",
+        "on-surface": "#e2e0fc",
+        "on-surface-variant": "#e2bfb2",
+        "inverse-surface": "#e2e0fc",
+        "inverse-on-surface": "#2f2e43",
+        outline: "#a98a7e",
+        "outline-variant": "#5a4137",
+        "surface-tint": "#ffb596",
+        primary: "#ffb596",
+        "primary-container": "#ff6b1a",
+        "on-primary": "#581e00",
+        "on-primary-container": "#591e00",
+        "primary-fixed": "#ffdbcd",
+        "primary-fixed-dim": "#ffb596",
+        secondary: "#7ed99e",
+        "secondary-container": "#00703f",
+        "on-secondary": "#00391d",
+        "on-secondary-container": "#94f0b2",
+        "secondary-fixed": "#9af6b8",
+        tertiary: "#f4bf32",
+        "tertiary-container": "#c09200",
+        "on-tertiary": "#3f2e00",
+        "on-tertiary-container": "#402e00",
+        "tertiary-fixed": "#ffdf9a",
+        error: "#ffb4ab",
+        "error-container": "#93000a",
+        "on-error": "#690005"
+      },
+      borderRadius: {
+        DEFAULT: "0.25rem",
+        lg: "0.5rem",
+        xl: "0.75rem",
+        "2xl": "1rem",
+        "3xl": "1.5rem",
+        full: "9999px"
+      },
+      spacing: {
+        "space-xxs": "0.25rem",
+        "space-xs": "0.5rem",
+        "space-sm": "0.75rem",
+        "space-md": "1rem",
+        "space-lg": "1.5rem",
+        "space-xl": "2rem",
+        "space-2xl": "3rem",
+        "space-3xl": "4rem",
+        "grid-gutter": "1.5rem",
+        "grid-margin-desktop": "3rem",
+        "grid-margin-mobile": "1rem"
+      },
+      fontFamily: {
+        headline: ["Outfit", "sans-serif"],
+        body: ["Plus Jakarta Sans", "sans-serif"],
+        label: ["Space Grotesk", "monospace"],
+        title: ["Outfit", "sans-serif"],
+        display: ["Outfit", "sans-serif"]
+      }
+    },
+  },
+  plugins: [],
+}

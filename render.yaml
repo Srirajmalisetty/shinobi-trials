@@ -1,0 +1,35 @@
+databases:
+  - name: shinobi-db
+    databaseName: shinobitrials
+    user: postgres
+    plan: free
+    region: oregon
+
+services:
+  - type: web
+    name: shinobi-trials-backend
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    region: oregon
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      - key: PORT
+        value: 8080
+      - key: SPRING_DATASOURCE_URL
+        value: jdbc:postgresql://shinobi-db:5432/shinobitrials
+      - key: SPRING_DATASOURCE_USERNAME
+        fromDatabase:
+          name: shinobi-db
+          property: user
+      - key: SPRING_DATASOURCE_PASSWORD
+        fromDatabase:
+          name: shinobi-db
+          property: password
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_API_MODEL
+        value: gemini-3.6-flash
+      - key: CERTIFICATE_BASE_URL
+        sync: false
