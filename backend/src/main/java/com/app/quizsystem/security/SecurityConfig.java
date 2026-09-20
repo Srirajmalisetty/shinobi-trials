@@ -33,8 +33,8 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         // Public authentication endpoints & health probe
                         .requestMatchers("/api/auth/register", "/api/auth/login", "/api/health").permitAll()
-                        // Public certificate verification endpoint (QR code scan)
-                        .requestMatchers("/api/certificates/*/verify").permitAll()
+                        // Public certificate endpoints (view diploma, QR code scan, and PDF download)
+                        .requestMatchers("/api/certificates/**").permitAll()
                         // Swagger & docs
                         .requestMatchers("/swagger-ui/**", "/v3/api-docs/**", "/swagger-ui.html", "/error").permitAll()
                         // Admin restricted endpoints

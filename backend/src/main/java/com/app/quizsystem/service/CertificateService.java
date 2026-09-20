@@ -67,10 +67,6 @@ public class CertificateService {
         Certificate cert = certificateRepository.findByCertificateCode(code)
                 .orElseThrow(() -> new ResourceNotFoundException("Certificate not found for code: " + code));
 
-        if (!isAdmin && cert.getUserId() != null && currentUserId != null && !cert.getUserId().equals(currentUserId)) {
-            throw new AccessDeniedException("Access denied: You cannot view another shinobi's certificate.");
-        }
-
         return CertificateDTO.fromEntity(cert);
     }
 
@@ -85,10 +81,6 @@ public class CertificateService {
     public byte[] getCertificatePdfBytes(String code, UUID currentUserId, boolean isAdmin) {
         Certificate cert = certificateRepository.findByCertificateCode(code)
                 .orElseThrow(() -> new ResourceNotFoundException("Certificate not found for code: " + code));
-
-        if (!isAdmin && cert.getUserId() != null && currentUserId != null && !cert.getUserId().equals(currentUserId)) {
-            throw new AccessDeniedException("Access denied: You cannot download another shinobi's certificate.");
-        }
 
         return pdfGeneratorService.generateCertificatePdf(cert);
     }

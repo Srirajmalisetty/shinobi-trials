@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { certificateApi } from '../api/certificateApi';
 import { Certificate } from '../types/quiz';
 import { useSoundEffect } from '../hooks/useSoundEffect';
+import { tokenStorage } from '../utils/tokenStorage';
 
 export const CertificatePage: React.FC = () => {
   const { code } = useParams<{ code: string }>();
@@ -66,7 +67,9 @@ export const CertificatePage: React.FC = () => {
     setDownloading(true);
 
     try {
-      const response = await fetch(pdfDownloadUrl);
+      const token = tokenStorage.getToken();
+      const headers: Record<string, string> = token ? { Authorization: `Bearer ${token}` } : {};
+      const response = await fetch(pdfDownloadUrl, { headers });
       if (!response.ok) {
         throw new Error(`Failed to fetch PDF: ${response.status} ${response.statusText}`);
       }
