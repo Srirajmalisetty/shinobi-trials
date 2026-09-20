@@ -1,7 +1,7 @@
 databases:
   - name: shinobi-db
     databaseName: shinobitrials
-    user: postgres
+    user: shinobi_user
     plan: free
     region: oregon
 
